@@ -12,6 +12,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Inherit from Pearl_K2 device
+$(call inherit-product, device/hotwav/Pearl_K2/device.mk)
+
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
     libpuresoftkeymasterdevice
@@ -20,7 +23,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
   $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
-  # Fastbootd
+# Fastbootd
   PRODUCT_PACKAGES += \
       android.hardware.fastboot@1.0-impl-mock \
       android.hardware.boot@1.1-impl-recovery \
